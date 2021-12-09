@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import DB from "../../db/connection";
 import { encrypt } from "../../utils/cryptografer";
 import { shuffle } from '../../utils/shuffle'
-import Amigo from "../../db/model/amigo";
+
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
