@@ -9,11 +9,14 @@ export default async function handler(req, res) {
 
 		const { name, phone } = req.body;
 
+		const phoneIsRegisted = await Amigo.findOne({ where: { phone } })
 
+		if (phoneIsRegisted) {
+			res.status(400).json({ message: "TELEFONE JÁ CADASTRADO!" })
+		}
 
 
 		try {
-			//Caso não exista a tabela de amigos, ele cria a tabela.
 			const data = await Amigo.create({
 				name,
 				phone,
