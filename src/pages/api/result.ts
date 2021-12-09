@@ -25,6 +25,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 
 	} else {
-		res.status(400).json({ message: "ERRO" });
+		res.status(200).json({ message: "ERRO" });
 	}
 }
