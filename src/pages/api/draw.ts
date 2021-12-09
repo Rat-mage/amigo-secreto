@@ -5,20 +5,11 @@ import { encrypt } from "../../utils/cryptografer";
 import { shuffle } from '../../utils/shuffle'
 import Amigo from "../../db/model/amigo";
 
-type amigoProps = {
-	message: string;
-	id?: number;
-	name?: string;
-	phone?: string;
-	friend?: string;
-	updatedAt?: object;
-	createdAt?: object;
-};
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	if (req.method === "PUT") {
 
-		const [results, metadata] = await DB.query('select * from amigos')
+		const results :any = await DB.query('select * from amigos')
 		shuffle(results)
 		const amigos = results.length - 1
 		const primeiroSorteado = results[0]
