@@ -9,7 +9,7 @@ export default function Index() {
 	const [password, setPassword] = useState("");
 	const [phone, setPhone] = useState("");
 
-	function handleConfirmAccess(e: { preventDefault: () => void }) {
+	function handleConfirmAccess(e) {
 		e.preventDefault();
 		console.log(name, password, phone);
 	}
@@ -44,7 +44,7 @@ export default function Index() {
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 				/>
-				
+
 				<input
 					type="text"
 					placeholder="48 98765 3214"
