@@ -1,0 +1,29 @@
+.container {
+  width: 100vw;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.container p {
+  font-size: 16px;
+}
+
+.container p strong {
+  font-size: 20px;
+}
+
+.container strong {
+  font-size: 32px;
+}
+
+.container button {
+  margin-top: 20px;
+    width: 150px;
+    height: 40px;
+    border: 1px solid #888888;
+  
+}

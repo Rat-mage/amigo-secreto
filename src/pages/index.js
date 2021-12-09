@@ -1,43 +1,42 @@
-import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from 'next/router'
+
+import Image from "next/image";
 import natal from "../assets/natal.svg";
 
-import estilo from "../styles/Index.module.css";
+import api from '../utils/api'
+import styles from '../styles/Home.module.css'
 
 export default function Index() {
 	const [name, setName] = useState("");
-	const [password, setPassword] = useState("");
-	const [phone, setPhone] = useState("");
+	const [phone, setPhone] = useState(0);
+	const [user, setUser] = useState({});
 
-	function handleConfirmAccess(e) {
+	const router = useRouter();
+
+	async function handleConfirmAccess(e) {
 		e.preventDefault();
-		console.log(name, password, phone);
+		const registerData = await api.post('api/register', { name, phone })
+		if (registerData.status === 202) {
+			alert(registerData.data.message)
+			return null
+		}
+		setUser(registerData);
+		alert(`bem vindo ao nosso amigo secreto ${registerData.data.dataValues.name}!`)
+		router.push('/result');
 	}
 
 	return (
-		<div
-			style={{
-				alignItems: "center",
-				justifyContent: "center",
-				flexDirection: "column",
-				display: "flex",
-
-				height: "100%",
-			}}>
+		<div className={styles.mainWrapper}>
 			<Image width={150} height={150} src={natal} alt="imagem de natal" />
 
 			<h1>Amigo secreto</h1>
 			<p>Este é seu primeiro acesso, preciamos de poucos dados:</p>
 
+
 			<form
 				onSubmit={handleConfirmAccess}
-				style={{
-					display: "flex",
-					alignItems: "center",
-					justifyContent: "center",
-					flexDirection: "column",
-					width: 200,
-				}}>
+				className={styles.mainForm}>
 				<input
 					type="text"
 					placeholder="Nome"
@@ -47,7 +46,7 @@ export default function Index() {
 
 				<input
 					type="text"
-					placeholder="48 98765 3214"
+					placeholder="Telefone"
 					value={phone}
 					onChange={(e) => setPhone(e.target.value)}
 				/>
@@ -55,7 +54,8 @@ export default function Index() {
 				<button type="submit" style={{ margin: 10 }}>
 					Participar
 				</button>
+
 			</form>
-		</div>
+		</div >
 	);
 }
