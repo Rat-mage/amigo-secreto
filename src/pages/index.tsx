@@ -44,13 +44,7 @@ export default function Index() {
 					value={name}
 					onChange={(e) => setName(e.target.value)}
 				/>
-				<input
-					type="password"
-					placeholder="Sua senha"
-					style={{ margin: 10 }}
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-				/>
+				
 				<input
 					type="text"
 					placeholder="48 98765 3214"
