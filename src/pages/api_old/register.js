@@ -1,18 +1,14 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-const DB = require("../../db/connection")
-const { encrypt } = require("../../utils/cryptografer")
-const Amigo = require("../../db/model/amigo")
+import DB from "../../db/connection";
+import { encrypt } from "../../utils/cryptografer";
+import Amigo from "../../db/model/amigo";
 
 export default async function handler(req, res) {
 	if (req.method === "POST") {
-		await DB.sync();
-
 		const { name, phone } = req.body;
-
-
-
-
+		console.log(name, phone);
 		try {
+			await DB.sync();
 			//Caso não exista a tabela de amigos, ele cria a tabela.
 			const data = await Amigo.create({
 				name,
@@ -20,6 +16,8 @@ export default async function handler(req, res) {
 				friend: encrypt("Ainda não saiu o sorteio!"),
 			});
 
+			//
+			console.log("opa", data);
 			res.status(200).json({ message: "Salvo com sucesso", ...data });
 		} catch (error) {
 			console.log(error);
