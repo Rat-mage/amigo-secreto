@@ -1,9 +1,9 @@
 const { Sequelize } = require("sequelize");
-const { resolve } = require("path");
+const path = require("path");
 
 const sequelize = new Sequelize({
 	dialect: "sqlite",
-	storage: resolve(__dirname, "amigosecreto.sqlite"),
+	storage: path.resolve("C:\\www\\amigo-secreto\\web-next\\src\\db\\dbamigosecreto.sqlite"),
 });
 
 module.exports = sequelize;

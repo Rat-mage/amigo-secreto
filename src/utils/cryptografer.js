@@ -1,9 +1,9 @@
 const crypto = require("crypto");
 
-const secret = crypto.randomBytes(Number(16)).toString("hex");
+const secret = crypto.randomBytes(Number(process.env.SECRET_LEND)).toString("hex");
 
 function encrypt(stringToEncrypt) {
-	const iv = Buffer.from(crypto.randomBytes(Number(16)));
+	const iv = Buffer.from(crypto.randomBytes(Number(process.env.IV_LEN)));
 	const cipher = crypto.createCipheriv("aes-256-cbc", Buffer.from(secret), iv);
 	let encrypted = cipher.update(stringToEncrypt);
 	encrypted = Buffer.concat([encrypted, cipher.final()]);
