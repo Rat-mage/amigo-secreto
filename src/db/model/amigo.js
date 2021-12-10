@@ -17,8 +17,12 @@ const Amigo = database.define("Amigo", {
 	},
 	friend: {
 		type: Sequelize.STRING,
-		defaultValue: "Ainda não saiu o sorteio!",
+		defaultValue: null
 	},
+	visualized: {
+		type: Sequelize.BOOLEAN,
+		defaultValue: false
+	}
 });
 
 module.exports = Amigo;

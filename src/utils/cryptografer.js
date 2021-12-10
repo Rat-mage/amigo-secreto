@@ -1,25 +1,14 @@
-const crypto = require("crypto");
-
-const secret = crypto.randomBytes(Number(16)).toString("hex");
-
 function encrypt(stringToEncrypt) {
-	const iv = Buffer.from(crypto.randomBytes(Number(16)));
-	const cipher = crypto.createCipheriv("aes-256-cbc", Buffer.from(secret), iv);
-	let encrypted = cipher.update(stringToEncrypt);
-	encrypted = Buffer.concat([encrypted, cipher.final()]);
-	return `${iv.toString("hex")}:${encrypted.toString("hex")}`;
+	var encrypted = btoa(stringToEncrypt);
+	// var encrypted = Buffer.from(stringToEncrypt, 'base64');
+	return encrypted;
 }
 function decrypt(stringToDecrypt) {
-	const [iv, contentMessage] = stringToDecrypt.split(":");
-	const ivBuffer = Buffer.from(iv, "hex");
-	const decipher = crypto.createDecipheriv(
-		"aes-256-cbc",
-		Buffer.from(secret),
-		ivBuffer
-	);
-	let decryptedMessage = decipher.update(Buffer.from(contentMessage, "hex"));
-	decryptedMessage = Buffer.concat([decryptedMessage, decipher.final()]);
-	return decryptedMessage.toString();
+	var decrypted = atob(stringToDecrypt);
+	// var decrypted = stringToDecrypt.toString('base64')
+	return decrypted;
 }
 
 module.exports = { encrypt, decrypt };
+
+

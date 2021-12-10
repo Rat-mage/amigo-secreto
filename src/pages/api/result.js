@@ -1,16 +1,25 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import DB from "../../db/connection";
-import { decrypt } from "../../utils/cryptografer";
-import Amigo from "../../db/model/amigo";
+const { decrypt } = require("../../utils/cryptografer");
+const Amigo = require("../../db/model/amigo");
+const DB = require('../../db/connection')
 
 export default async function handler(req, res) {
 	if (req.method === "GET") {
 		const { phone } = req.query;
+		const data = await Amigo.findOne({ where: { phone } })
+		var amigosecreto = ''
 
-		const data = await Amigo.findOne({ where: { phone } });
-		// const amigosecreto = decrypt(data.friend)
-		res.json(data);
+		if (data.visualized) {
+			amigosecreto = 'javisto'
+		} else {
+			data.friend ? amigosecreto = decrypt(data.friend) : amigosecreto = 'semsorteio'
+		}
+
+		return res.json({
+			amigosecreto
+		})
+
+
 	} else {
-		res.status(200).json({ message: "ERRO" });
+		res.status(400).json({ message: "ERRO" });
 	}
 }
