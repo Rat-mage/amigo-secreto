@@ -1,0 +1,29 @@
+.FriendBox {
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.FriendBox p {
+  font-size: 16px;
+}
+.FriendBox strong {
+  font-size: 32px;
+  color: #dd3f3f;
+}
+
+.FriendBox button {
+  margin-top: 20px;
+  width: 150px;
+  height: 40px;
+  border: 1px solid #dd3f3f;
+	color: #FFF;
+	font-weight: 600;
+	background: #dd3f3f;
+	margin: 10 ;
+
+}
+.FriendBox strong:last-child {
+  font-size: 15px;
+}

@@ -10,20 +10,11 @@
 
 .container p {
   font-size: 16px;
+	color: #dd3f3f;
 }
 
 .container p strong {
   font-size: 20px;
+	color: #dd3f3f;
 }
 
-.container strong {
-  font-size: 32px;
-}
-
-.container button {
-  margin-top: 20px;
-    width: 150px;
-    height: 40px;
-    border: 1px solid #888888;
-  
-}

@@ -10,6 +10,11 @@
 
 .mainWrapper p {
 	text-align: center;
+	
+}
+
+.mainWrapper h1 {
+	color: #dd3f3f;
 }
 
 .mainForm {
@@ -30,10 +35,26 @@
 	max-width: 200px;
 	margin-bottom: 20px;
 	text-align: center;
+	outline: #dd3f3f;
+	border: 1px solid #dd3f3f;
+	color: #dd3f3f;
+}
+
+.mainForm input::placeholder {
+	color: #dd3f3f;
+}
+
+
+.mainForm  input:focus {
+	border: 2px solid #dd3f3f;
 }
 
 .mainForm button {
 	width: 100px;
 	height: 30px;
-	border: 1px solid #888888;
+	border: 1px solid #dd3f3f;
+	color: #FFF;
+	font-weight: 600;
+	background: #dd3f3f;
+	margin: 10 ;
 } 
