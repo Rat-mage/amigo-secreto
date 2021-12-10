@@ -3,6 +3,7 @@ const Amigo = require("../../db/model/amigo")
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
+    await DB.sync();
     const { phone } = req.query;
     const data = await Amigo.findOne({ where: { phone } })
 
