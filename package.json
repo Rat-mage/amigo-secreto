@@ -1,7 +1,9 @@
 {
   "name": "amigo-secreto",
   "private": true,
-  "cacheDirectories": [".next/cache"],
+  "cacheDirectories": [
+    ".next/cache"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,6 +13,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "cookie": "^0.4.1",
+    "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "js-cookie": "^3.0.1",
     "next": "12.0.7",
