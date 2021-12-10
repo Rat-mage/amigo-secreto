@@ -15,7 +15,7 @@ export default function Result() {
       setFriend(result.data.amigosecreto)
     })
 
-  }, [])
+  }, [phoneOnCookie])
 
   return (
     <div className={styles.container}>
