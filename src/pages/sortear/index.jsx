@@ -6,7 +6,10 @@ import styles from '../../styles/Result.module.css'
 export default function Result() {
 
   function handleDraw() {
-    axios.put('/api/draw');
+    axios.put('/api/draw').then((data) => {
+      console.log(data)
+      alert(`foi? ${data}`)
+    });
   }
 
   return (
