@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Cookies from 'js-cookie'
-import api from '../../utils/api'
+import axios from 'axios'
 import styles from '../../styles/Result.module.css'
 import { FriendBox } from "../../components/FriendBox";
 
@@ -11,7 +11,7 @@ export default function Result() {
   var phoneOnCookie = Number(Cookies.get('@amigo-secreto:phone'))
 
   useEffect(() => {
-    api.get('api/result', { params: { phone: phoneOnCookie } }).then((result) => {
+    axios.get('api/result', { params: { phone: phoneOnCookie } }).then((result) => {
       setFriend(result.data.amigosecreto)
     })
 

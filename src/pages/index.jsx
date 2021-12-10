@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
+import axios from 'axios'
 
 import Image from "next/image";
 import natal from "../assets/natal.svg";
 
-import api from '../utils/api'
 import styles from '../styles/Home.module.css'
 
 export default function Index() {
@@ -20,7 +20,7 @@ export default function Index() {
 		Cookies.remove('@amigo-secreto:name')
 		Cookies.remove('@amigo-secreto:phone')
 
-		const registerData = await api.post('api/register', { name, phone })
+		const registerData = await axios.post('api/register', { name, phone })
 		if (registerData.status === 202) {
 			Cookies.set('@amigo-secreto:phone', registerData.data.dataValues.phone)
 			Cookies.set('@amigo-secreto:name', registerData.data.dataValues.name)

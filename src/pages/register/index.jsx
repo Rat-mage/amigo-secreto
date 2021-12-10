@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import Image from "next/image";
 import natal from "../../assets/natal.svg";
 
-import api from '../../utils/api'
+import axios from 'axios'
 import styles from '../../styles/Home.module.css'
 
 export default function Register() {
@@ -17,7 +17,7 @@ export default function Register() {
 
 	async function handleConfirmAccess(e) {
 		e.preventDefault();
-		const registerData = await api.post('api/register', { name, phone })
+		const registerData = await axios.post('api/register', { name, phone })
 		Cookies.remove('@amigo-secreto:name')
 		Cookies.remove('@amigo-secreto:phone')
 
