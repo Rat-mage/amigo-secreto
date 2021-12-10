@@ -20,7 +20,7 @@ export default function Index() {
 		Cookies.remove('@amigo-secreto:name')
 		Cookies.remove('@amigo-secreto:phone')
 
-		const registerData = await axios.post('api/register', { name, phone })
+		const registerData = await axios.post('api/verify', { phone })
 		if (registerData.status === 202) {
 			Cookies.set('@amigo-secreto:phone', registerData.data.dataValues.phone)
 			Cookies.set('@amigo-secreto:name', registerData.data.dataValues.name)
