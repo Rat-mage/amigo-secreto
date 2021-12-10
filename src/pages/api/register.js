@@ -1,6 +1,4 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 const DB = require("../../db/connection")
-// const { encrypt } = require("../../utils/cryptografer")
 const Amigo = require("../../db/model/amigo")
 
 export default async function handler(req, res) {
