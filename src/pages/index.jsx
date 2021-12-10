@@ -9,7 +9,6 @@ import natal from "../assets/natal.svg";
 import styles from '../styles/Home.module.css'
 
 export default function Index() {
-	const [name, setName] = useState("");
 	const [phone, setPhone] = useState("");
 
 
@@ -20,16 +19,19 @@ export default function Index() {
 		Cookies.remove('@amigo-secreto:name')
 		Cookies.remove('@amigo-secreto:phone')
 
-		const registerData = await axios.get('api/verify', { phone })
+		const registerData = await axios.get('/api/verify', { params: { phone: phone } })
+		console.log(registerData)
+
 		if (registerData.status === 202) {
-			Cookies.set('@amigo-secreto:phone', registerData.data.dataValues.phone)
-			Cookies.set('@amigo-secreto:name', registerData.data.dataValues.name)
-			alert(`Bem vindo ${registerData.data.dataValues.name}`)
-			router.push('/result');
+			alert(`Vamos precisar cadastrar você primeiro!`)
+			router.push('/register');
 			return null;
 		}
-		alert(`Vamos precisar cadastrar você primeiro!`)
-		router.push('/register');
+		Cookies.set('@amigo-secreto:phone', registerData.data.phone)
+		Cookies.set('@amigo-secreto:name', registerData.data.name)
+		alert(`Bem vindo ${registerData.data.name}`)
+		router.push('/result');
+
 		return null;
 	}
 
