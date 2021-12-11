@@ -7,6 +7,13 @@ var phoneOnCookie = Number(Cookies.get('@amigo-secreto:phone'))
 export function FriendBox({ friend }) {
   async function handleConfirmFriend() {
     await axios.put('api/confirmfriend', { phone: phoneOnCookie })
+    if (confirm("Deseja marcar como visto? Essa decisão não pode ser desfeita!")) {
+      alert("Beleza, vamos marcar seu amigo como visto!!");
+      window.location.reload(false);
+
+    } else {
+      alert("Show! Anota ele e depois confirma, beleza?");
+    }
   }
 
   return (

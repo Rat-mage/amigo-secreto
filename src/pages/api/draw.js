@@ -14,10 +14,10 @@ export default async function handler(req, res) {
 		let index = 0
 		while (amigos > index) {
 			let sorteado = results.shift()
-			await DB.query(`update amigos set friend = '${encrypt(results[0].name)}' where id = ${sorteado.id}`)
+			await DB.query(`update amigos set friend = '${encrypt(results[0].name)}', visualized = false where id = ${sorteado.id}`)
 			index++
 		}
-		await DB.query(`update amigos set friend = '${encrypt(primeiroSorteado.name)}' where id = ${results[0].id}`)
+		await DB.query(`update amigos set friend = '${encrypt(primeiroSorteado.name)}', visualized = false where id = ${results[0].id}`)
 
 		res.status(200).json({
 			"message": "Nomes embaralhados!"

@@ -20,7 +20,6 @@ export default function Index() {
 		Cookies.remove('@amigo-secreto:phone')
 
 		const registerData = await axios.get('/api/verify', { params: { phone: phone } })
-		console.log(registerData)
 
 		if (registerData.status === 202) {
 			alert(`Vamos precisar cadastrar você primeiro!`)
@@ -49,6 +48,7 @@ export default function Index() {
 					placeholder="Telefone"
 					value={phone}
 					onChange={(e) => setPhone(e.target.value)}
+					required
 				/>
 
 				<button type="submit">
