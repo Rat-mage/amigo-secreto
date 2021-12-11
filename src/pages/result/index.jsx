@@ -8,7 +8,7 @@ export default function Result() {
   const [friend, setFriend] = useState("");
 
   var nameOnCookie = Cookies.get('@amigo-secreto:name')
-  var phoneOnCookie = Number(Cookies.get('@amigo-secreto:phone'))
+  var phoneOnCookie = Cookies.get('@amigo-secreto:phone')
 
   useEffect(() => {
     axios.get('api/result', { params: { phone: phoneOnCookie } }).then((result) => {
