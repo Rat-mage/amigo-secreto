@@ -13,7 +13,7 @@ const Amigo = database.define("amigo", {
 		allowNull: false,
 	},
 	phone: {
-		type: Sequelize.INTEGER,
+		type: Sequelize.STRING,
 	},
 	friend: {
 		type: Sequelize.STRING,
