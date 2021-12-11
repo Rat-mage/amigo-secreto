@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 import axios from 'axios'
 import styles from '../../styles/FriendBoxt.module.css'
 
-var phoneOnCookie = Number(Cookies.get('@amigo-secreto:phone'))
+var phoneOnCookie = Cookies.get('@amigo-secreto:phone')
 
 export function FriendBox({ friend }) {
   async function handleConfirmFriend() {

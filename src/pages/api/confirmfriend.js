@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
     DB.query(`update amigos set visualized = true where id = ${data.id}`)
 
-    return res.status(200).json({ message: "Amigo oculto! 😂😉" })
+    return res.status(200).json({ message: "Amigo oculto" })
   } else {
     res.status(400).json({ message: "ERRO" });
   }
