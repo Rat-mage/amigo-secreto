@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import styles from '../../styles/Result.module.css'
-import { FriendBox } from "../../components/FriendBox";
+import { FriendBox } from "../../components/FriendBox"; 3
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+
+import { AiOutlineHome } from 'react-icons/ai'
 
 export default function Result() {
   const [friend, setFriend] = useState("");
@@ -19,6 +23,10 @@ export default function Result() {
 
   return (
     <div className={styles.container}>
+      <Link href='/'>
+        <AiOutlineHome size={25} color='#dd3f3f' />
+      </Link>
+
       <p>
         Oi <strong>{nameOnCookie}!</strong>
       </p>
@@ -39,8 +47,6 @@ export default function Result() {
             )
         }
       })()}
-
-
     </div>
   );
 }

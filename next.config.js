@@ -1,6 +1,6 @@
 module.exports = {
   reactStrictMode: true,
-  env: {
-    customKey: 'my-value',
+  images: {
+    domains: ['https://c.tenor.com/'],
   },
 }

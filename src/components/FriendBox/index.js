@@ -18,10 +18,10 @@ export function FriendBox({ friend }) {
 
   return (
     <div className={styles.FriendBox}>
-      <p>O seu amigo secreto é </p>
+      <p>O seu amigo secreto é o(a): </p>
       <strong>{friend}</strong>
       <button onClick={handleConfirmFriend}>
-        Confirma que viu seu amigo?
+        Confirmar que viu o amigo 
       </button>
       <strong>* vamos sumir com ele daqui!</strong>
     </div>
