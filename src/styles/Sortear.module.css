@@ -18,7 +18,7 @@
 }
 
 .nomesDiv {
-	width: 600px;
+	width: 100vw;
 	display: flex;
 	flex-direction: column;
 	padding: 0 10%;
