@@ -34,6 +34,19 @@ export default function Register() {
 		return null;
 	}
 
+	
+	function validatePhone(phoneToChange) {
+		if (phoneToChange.length > 12) {
+			alert('Telefone muito grande, tem de ser no máximo 12 caracteres!')
+			let slicedPhone = phoneToChange.substring(0, 12)
+			setPhone(slicedPhone)
+			return null;
+		}
+		let phone = phoneToChange;
+		let phoneChanged = phone.replace(/ /g, "")
+		setPhone(phoneChanged)
+	}
+
 	return (
 		<div className={styles.mainWrapper}>
 			<Image width={150} height={150} src={natal} alt="imagem de natal" />
@@ -52,9 +65,9 @@ export default function Register() {
 
 				<input
 					type="text"
-					placeholder="Telefone"
+					placeholder="048999999999"
 					value={phone}
-					onChange={(e) => setPhone(e.target.value)}
+					onChange={(e) => validatePhone(e.target.value)}
 				/>
 
 				<button type="submit">
