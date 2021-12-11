@@ -18,18 +18,17 @@
 }
 
 .nomesDiv {
-	width: 20vw;
+	width: 600px;
 	display: flex;
 	flex-direction: column;
+	padding: 0 10%;
 	
 }
 .nomes {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	align-items: center;
-
-	
+	align-items: center;	
 }
 
 .container button {

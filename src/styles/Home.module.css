@@ -10,7 +10,7 @@
 
 .mainWrapper p {
 	text-align: center;
-	
+	color: #dd3f3f;
 }
 
 .mainWrapper h1 {
@@ -36,7 +36,7 @@
 	margin-bottom: 20px;
 	text-align: center;
 	outline: #dd3f3f;
-	border: 1px solid #dd3f3f;
+	border: 0.5px solid #dd3f3f;
 	color: #dd3f3f;
 }
 

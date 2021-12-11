@@ -3,6 +3,8 @@ import axios from 'axios'
 import styles from '../../styles/Sortear.module.css'
 import { useEffect, useState } from 'react';
 
+import loteryDrawImg from '../../assets/loterydraw.png'
+
 export default function Result() {
   const [users, setUsers] = useState([]);
 
@@ -10,6 +12,9 @@ export default function Result() {
     axios.get('/api/names').then((result) => {
       setUsers(result.data)
     })
+
+    
+    
   }, [])
 
   function handleDraw() {
@@ -23,19 +28,19 @@ export default function Result() {
     <div className={styles.container}>
       <h1>Hora do sorteio!</h1>
 
-      <strong>Participantes | Já viu o amigo?</strong>
+      <strong>Participantes: {users.length}/32 {} | Já viu o amigo?</strong>
       <div className={styles.nomesDiv}>
 
         {Object.keys(users).map((name, i) => (
           <div key={i} className={styles.nomes}>
-            <p>{i + 1} {users[name].name}</p>
+            <p>{i + 1}. {users[name].name}</p>
             <p>{users[name].visualized ? ' ✔' : ' ❌'}</p>
           </div>
         ))}
 
       </div>
       <button onClick={handleDraw}>
-        <img src='https://c.tenor.com/OH7SMS7CNQ0AAAAM/cartas-sorteio.gif' />
+        <Image src={loteryDrawImg} width={200} height={200} priority/>
       </button>
     </div>
   );

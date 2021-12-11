@@ -19,6 +19,8 @@ export default async function handler(req, res) {
 		}
 		await DB.query(`update amigos set friend = '${encrypt(primeiroSorteado.name)}', visualized = false where id = ${results[0].id}`)
 
+		await DB.query(`update config set configvalue = true where configname = 'sorteado'`)
+
 		res.status(200).json({
 			"message": "Nomes embaralhados!"
 		})

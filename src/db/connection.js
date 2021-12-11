@@ -1,5 +1,4 @@
 const { Sequelize } = require("sequelize");
-const path = require("path");
 
 const sequelize = new Sequelize({
 	database: process.env.POSTGRES_DB,
@@ -15,6 +14,4 @@ const sequelize = new Sequelize({
 			}
 	 },
 });
-
-
 module.exports = sequelize;
