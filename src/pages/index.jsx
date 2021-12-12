@@ -29,8 +29,6 @@ export default function Index() {
 		Cookies.set('@amigo-secreto:name', registerData.data.name)
 		alert(`Bem vindo ${registerData.data.name}`)
 		router.push('/result');
-
-		
 	}
 
 	function validatePhone(phoneToChange) {

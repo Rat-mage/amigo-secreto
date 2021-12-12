@@ -2,8 +2,6 @@
 const DB = require("../../db/connection");
 const { encrypt } = require("../../utils/cryptografer");
 const shuffle = require('../../utils/shuffle');
-const Amigo = require("../../db/model/amigo");
-
 
 export default async function handler(req, res) {
 	if (req.method === "PUT") {
@@ -19,12 +17,9 @@ export default async function handler(req, res) {
 		}
 		await DB.query(`update amigos set friend = '${encrypt(primeiroSorteado.name)}', visualized = false where id = ${results[0].id}`)
 
-		await DB.query(`update config set configvalue = true where configname = 'sorteado'`)
-
 		res.status(200).json({
 			"message": "Nomes embaralhados!"
 		})
-
 
 	} else {
 		res.status(400).json({ message: "ERRO" });

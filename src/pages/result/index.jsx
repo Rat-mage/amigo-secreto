@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
+import Link from 'next/link'
 import Cookies from 'js-cookie'
 import axios from 'axios'
-import styles from '../../styles/Result.module.css'
-import { FriendBox } from "../../components/FriendBox"; 3
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-
 import { AiOutlineHome } from 'react-icons/ai'
+
+import { FriendBox } from "../../components/FriendBox"; 3
+import styles from '../../styles/Result.module.css'
 
 export default function Result() {
   const [friend, setFriend] = useState("");
