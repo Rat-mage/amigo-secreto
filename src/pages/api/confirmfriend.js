@@ -1,4 +1,3 @@
-const { decrypt } = require("../../utils/cryptografer");
 const DB = require('../../db/connection')
 const Amigo = require("../../db/model/amigo");
 

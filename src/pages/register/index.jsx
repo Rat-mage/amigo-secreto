@@ -1,21 +1,20 @@
 import { useState } from "react";
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
-
 import Image from "next/image";
+import axios from 'axios'
+
 import natal from "../../assets/natal.svg";
 
-import axios from 'axios'
 import styles from '../../styles/Home.module.css'
 
 export default function Register() {
 	const [name, setName] = useState("");
 	const [phone, setPhone] = useState("");
 
-
 	const router = useRouter();
 
-	async function handleConfirmAccess(e) {
+	async function handleRegister(e) {
 		e.preventDefault();
 		const registerData = await axios.post('api/register', { name, phone })
 		Cookies.remove('@amigo-secreto:name')
@@ -54,7 +53,7 @@ export default function Register() {
 			<p>Precisamos só do seu nome e telefone:</p>
 
 			<form
-				onSubmit={handleConfirmAccess}
+				onSubmit={handleRegister}
 				className={styles.mainForm}>
 				<input
 					type="text"
