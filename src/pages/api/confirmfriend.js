@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
     const data = await Amigo.findOne({ where: { phone } })
 
-    DB.query(`update amigos set visualized = true where id = ${data.id}`)
+    DB.query(`update amigosmenors set visualized = true where id = ${data.id}`)
 
     return res.status(200).json({ message: "Amigo oculto" })
   } else {
