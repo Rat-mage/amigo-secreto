@@ -33,7 +33,7 @@ export default function Index() {
 
 	function validatePhone(phoneToChange) {
 		if (phoneToChange.length > 12) {
-			alert('Telefone muito grande, tem de ser no máximo 12 caracteres!')
+			alert('Senha muito grande, tem de ser no máximo 12 caracteres!')
 			let slicedPhone = phoneToChange.substring(0, 12)
 			setPhone(slicedPhone)
 			return null;
@@ -47,14 +47,14 @@ export default function Index() {
 		<div className={styles.mainWrapper}>
 			<Image width={150} height={150} src={natal} alt="imagem de natal" />
 			<h1>Amigo secreto</h1>
-			<p>Para começar, por favor informe seu telefone:</p>
+			<p>Para começar, por favor informe sua senha:</p>
 
 			<form
 				onSubmit={handleConfirmAccess}
 				className={styles.mainForm}>
 				<input
-					type="text"
-					placeholder="048999999999"
+					type="password"
+					placeholder="Senha"
 					value={phone}
 					onChange={(e) => validatePhone(e.target.value)}
 					required

@@ -16,17 +16,17 @@ export default function Result() {
   }, [])
 
   function handleDraw() {
-    // axios.put('/api/draw').then((data) => {
-    //   alert('SORTEADO!')
-    // });
-    alert('NOMES JÁ FORAM SORTEADOS')
+    axios.put('/api/draw').then((data) => {
+      alert('SORTEADO!')
+    });
+    // alert('NOMES JÁ FORAM SORTEADOS')
   }
 
   return (
     <div className={styles.container}>
       <h1>Hora do sorteio!</h1>
 
-      <strong>Participantes: {users.length}/32 { } | Já viu o amigo?</strong>
+      <strong>Participantes | Já viu o amigo?</strong>
       <div className={styles.nomesDiv}>
 
         {Object.keys(users).map((name, i) => (
