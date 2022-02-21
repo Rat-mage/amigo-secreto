@@ -19,7 +19,7 @@ export default function Result() {
     axios.put('/api/draw').then((data) => {
       alert('SORTEADO!')
     });
-    // alert('NOMES JÁ FORAM SORTEADOS')
+
   }
 
   return (
@@ -29,9 +29,9 @@ export default function Result() {
       <strong>Participantes | Já viu o amigo?</strong>
       <div className={styles.nomesDiv}>
 
-        {Object.keys(users).map((name, i) => (
-          <div key={i} className={styles.nomes}>
-            <p>{i + 1}. {users[name].name}</p>
+        {Object.keys(users).map((name, index) => (
+          <div key={index} className={styles.nomes}>
+            <p>{index + 1}. {users[name].name}</p>
             <p>{users[name].visualized ? ' ✔' : ' ❌'}</p>
           </div>
         ))}
