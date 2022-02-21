@@ -1,14 +1,20 @@
-const DB = require('../../db/connection')
-const Amigo = require("../../db/model/amigo");
+const Friend = require("../../db/model/friend");
 
 export default async function handler(req, res) {
   if (req.method === "PUT") {
 
-    const { phone } = req.body;
+    const { accessCode } = req.body;
 
-    const data = await Amigo.findOne({ where: { phone } })
+    const data = await Friend.findOne({ where: { accessCode } })
+    console.log(data)
 
-    DB.query(`update amigosmenors set visualized = true where id = ${data.id}`)
+    await Friend.update({
+      visualized: true
+    }, {
+      where: {
+        id: data.id
+      }
+    })
 
     return res.status(200).json({ message: "Amigo oculto" })
   } else {

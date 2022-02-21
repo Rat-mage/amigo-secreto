@@ -11,10 +11,10 @@ export default function Result() {
   const [friend, setFriend] = useState("");
 
   var nameOnCookie = Cookies.get('@amigo-secreto:name')
-  var phoneOnCookie = Cookies.get('@amigo-secreto:phone')
+  var accessCodeOnCoockie = Cookies.get('@amigo-secreto:accessCode')
 
   useEffect(() => {
-    axios.get('api/result', { params: { phone: phoneOnCookie } }).then((result) => {
+    axios.get('api/result', { params: { accessCode: accessCodeOnCoockie } }).then((result) => {
       setFriend(result.data.amigosecreto)
     })
 

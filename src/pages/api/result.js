@@ -1,6 +1,5 @@
 const { decrypt } = require("../../utils/cryptografer");
-const Amigo = require("../../db/model/amigo");
-const DB = require("../../db/connection");
+const Friend = require("../../db/model/friend");
 
 import Cors from "cors";
 
@@ -25,8 +24,9 @@ function runMiddleware(req, res, fn) {
 export default async function handler(req, res) {
 	await runMiddleware(req, res, cors);
 	if (req.method === "GET") {
-		const { phone } = req.query;
-		const data = await Amigo.findOne({ where: { phone } });
+		const { accessCode } = req.query;
+		console.log(accessCode)
+		const data = await Friend.findOne({ where: { accessCode } });
 		var amigosecreto = "";
 
 		if (data.visualized) {

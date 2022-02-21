@@ -1,18 +1,18 @@
 const Sequelize = require("sequelize");
 const database = require("../connection");
 
-const Amigo = database.define("amigosmenors", {
+const Friend = database.define("friend", {
 	id: {
 		type: Sequelize.INTEGER,
 		autoIncrement: true,
 		allowNull: false,
-		primaryKey: true,
+		primaryKey: true
 	},
 	name: {
 		type: Sequelize.STRING,
 		allowNull: false,
 	},
-	phone: {
+	accessCode: {
 		type: Sequelize.STRING,
 	},
 	friend: {
@@ -25,4 +25,4 @@ const Amigo = database.define("amigosmenors", {
 	}
 });
 
-module.exports = Amigo;
+module.exports = Friend;
